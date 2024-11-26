@@ -21,28 +21,30 @@ def new_record(path):
         except ValueError:
             print("El precio y el descuento deben ser valores numéricos. Inténtalo de nuevo.")
             continue
-
-        with open(path, mode='a', newline='') as file:
-            fields = ['Fecha', 'Lavador', 'Vehiculo', 'Placa', 'Tipo_lavada', 'Precio', 'Descuento', 'Total']
-            writer = csv.DictWriter(file, fieldnames=fields)
-            
-            # Write header only if the file is empty
-            file.seek(0, 2)
-            if file.tell() == 0:
-                writer.writeheader()
-            
-            # Write the new record to the CSV file
-            writer.writerow({
-                'Fecha': current_date,
-                'Lavador': name,
-                'Vehiculo': vehicle,
-                'Placa': license_plate,
-                'Tipo_lavada': type_of_washing,
-                'Precio': price,
-                'Descuento': discount,
-                'Total': total
-            })            
-        return f'El registro a sido agregado exitosamente.'
+        try:
+            with open(path, mode='a', newline='') as file:
+                fields = ['Fecha', 'Lavador', 'Vehiculo', 'Placa', 'Tipo_lavada', 'Precio', 'Descuento', 'Total']
+                writer = csv.DictWriter(file, fieldnames=fields)
+                
+                # Write header only if the file is empty
+                file.seek(0, 2)
+                if file.tell() == 0:
+                    writer.writeheader()
+                
+                # Write the new record to the CSV file
+                writer.writerow({
+                    'Fecha': current_date,
+                    'Lavador': name,
+                    'Vehiculo': vehicle,
+                    'Placa': license_plate,
+                    'Tipo_lavada': type_of_washing,
+                    'Precio': price,
+                    'Descuento': discount,
+                    'Total': total
+                })            
+            return f'El registro a sido agregado exitosamente.'
+        except  Exception as e:
+            return f'Error al guardar los datos: {e}'
 
 # Código principal
 if __name__ == '__main__':
