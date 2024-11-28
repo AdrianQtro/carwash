@@ -1,7 +1,7 @@
 
 import csv
 from datetime import datetime
-ARCHIVO = 'app/lavadero/expenses.csv'
+ARCHIVO = '/home/adrian/lavadero/expenses.csv'
 
 
 def read_expenses(ARCHIVO):
@@ -12,7 +12,7 @@ def read_expenses(ARCHIVO):
             data_expenses.append(row)
         return data_expenses
     
-def secundary_menu():
+def secundary_menu(data_expenses):
     while True:
         print("************************")
         print("*** MENU DE OPCIONES ***")
@@ -123,8 +123,8 @@ def delete_exp(data_expenses,ARCHIVO):
         return f'No se encontro ningun registro con los datos ingresados.'
 
 if __name__ == '__main__':
-    data_expenses = read_expenses('app/lavadero/expenses.csv')
-    secundary_menu()
+    data_expenses = read_expenses('/home/adrian/lavadero/expenses.csv')
+    secundary_menu(data_expenses)
     
     
     

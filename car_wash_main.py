@@ -7,20 +7,23 @@ import total_day
 from datetime import datetime
 from expenses import secundary_menu
 
-path = 'app/lavadero/carwash.csv'
-ARCHIVO = 'app/lavadero/expenses.csv'
+path = "/home/adrian/lavadero/carwash.csv"
+ARCHIVO = '/home/adrian/lavadero/expenses.csv'
 
 def read_file_csv(path):
-    data = []
-    with open(path, 'r')as csv_file:
-        reader = csv.DictReader(csv_file)
-        for row in reader:
-            data.append(row)
-        return data
+    try:
+        data = []
+        with open(path, 'r')as csv_file:
+            reader = csv.DictReader(csv_file)
+            for row in reader:
+                data.append(row)
+            return data
+    except FileNotFoundError:
+        print(f"El archivo no se encuentra en la ruta: {path}")
 
 def main_menu():
-    data = read_file_csv('app/lavadero/carwash.csv')
-    data_expenses = read_file_csv('app/lavadero/expenses.csv')
+    data = read_file_csv('/home/adrian/lavadero/carwash.csv')
+    data_expenses = read_file_csv('/home/adrian/lavadero/expenses.csv')
     while True:
         print("************************")
         print("*** MENU DE OPCIONES ***")
@@ -55,7 +58,7 @@ def main_menu():
             print(result_delete)
             
         elif opcion == "5":
-            secundary_menu()
+            secundary_menu(data_expenses)
             
         elif opcion == "6":
             date = input("Digite la fecha (formato DD-MM-YYYY): ").strip()
@@ -77,11 +80,11 @@ def main_menu():
             print("Opción no válida, intente de nuevo.")
 
 if __name__ == '__main__':
-    data = read_file_csv('app/lavadero/carwash.csv')
+    data = read_file_csv("/home/adrian/lavadero/carwash.csv")
     main_menu()    
     
 
-    
+   
 
     
 

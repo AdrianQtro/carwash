@@ -48,6 +48,6 @@ def new_record(path):
 
 # Código principal
 if __name__ == '__main__':
-    result = new_record('app/lavadero/carwash.csv')
-    data = car_wash_main.read_file_csv('app/lavadero/carwash.csv')
+    result = new_record('/home/adrian/lavadero/carwash.csv')
+    data = car_wash_main.read_file_csv('/home/adrian/lavadero/expenses.csv')
     print(result)

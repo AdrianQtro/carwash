@@ -3,8 +3,8 @@ import car_wash_main
 import expenses
 from datetime import datetime
 
-data = 'app/lavadero/carwash.csv'
-data_expenses = 'app/lavadero/expenses.csv'
+data = '/home/adrian/lavadero/carwash.csv' 
+data_expenses = '/home/adrian/lavadero/expenses.csv'
 
 def total_cars(data,date):
     total_money = 0
