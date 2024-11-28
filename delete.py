@@ -25,6 +25,6 @@ def delete_record(path,data):
             return True # el boolean con el confirmar 
         else:
             print("Eliminación cancelada por el usuario.")
-            return False
+            return False # si ocurre algo diferente al si 
     else:
         return f"No se encontró ningún registro con Fecha: {date} y Placa: {plate}."

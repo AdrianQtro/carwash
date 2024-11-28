@@ -29,7 +29,7 @@ def main_menu():
         print("2. Mostrar planilla")
         print("3. Pagar")
         print("4. Eliminar Registro en planilla")
-        print("5. departamento de Gastos")
+        print("5. Departamento de Gastos")
         print("6. Total del dia")
         print("7. Total del mes")
         print("8. Buscar por placa")
